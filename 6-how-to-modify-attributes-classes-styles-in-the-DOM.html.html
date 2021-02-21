@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Learning the DOM</title>
+    <style>
+      .border {
+        border: 3px solid black;
+      }
+
+      .border:hover {
+        border: 3px solid green;
+      }
+
+      .h-12 {
+        height: 12rem;
+      }
+
+      body {
+        max-width: 600px;
+        margin: 0 auto;
+        font-family: sans-serif;
+      }
+      .active {
+        border: 2px solid blue;
+      }
+
+      .warning {
+        border: 2px solid red;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      div {
+        border: 2px dashed lightgray;
+        padding: 15px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="height: 100px; width: 100px; border: 2px solid black">Div</div>
+
+    <div>Div 1</div>
+    <div class="active">Div 2</div>
+
+    <img
+      class="border h-12"
+      src="https://assets.digitalocean.com/articles/eng_javascript/dom/attributes-shark.png"
+    />
+
+    <img src="6.JPG" style="width: 100vw; min-width: 600px" />
+
+    <script>
+      const img = document.querySelector("img");
+      console.log("img hasAttribute('src'): " + img.hasAttribute("src"));
+      console.log("img getAttribute('src'): " + img.getAttribute("src"));
+      img.removeAttribute("src");
+      console.log("img removeAttribute('src')...and now it's gone...");
+      console.log("img setAttribute ('src', 'newurl...') and now it's back");
+      img.setAttribute(
+        "src",
+        "https://assets.digitalocean.com/articles/eng_javascript/dom/attributes-octopus.png"
+      );
+      img.src =
+        "https://assets.digitalocean.com/articles/eng_javascript/dom/attributes-shark.png";
+
+      // Select the first div
+      const div = document.querySelector("div");
+
+      // Assign the warning class to the first div
+      div.className = "warning";
+
+      // Select the second div by class name
+      const activeDiv = document.querySelector(".active");
+
+      activeDiv.classList.add("hidden"); // Add the hidden class
+      activeDiv.classList.remove("hidden"); // Remove the hidden class
+      activeDiv.classList.toggle("hidden"); // Switch between hidden true and false
+      activeDiv.classList.replace("active", "warning"); // Replace active class with warning class
+
+      // Select div
+      const div2 = document.querySelector("div");
+
+      // Apply style to div
+      div2.setAttribute("style", "text-align: center");
+
+      div2.style.height = "100px";
+      div2.style.width = "100px";
+      div2.style.border = "2px solid black";
+
+      // Make div into a circle and vertically center the text
+      div2.style.borderRadius = "50%";
+      div2.style.display = "flex";
+      div2.style.justifyContent = "center";
+      div2.style.alignItems = "center";
+    </script>
+  </body>
+</html>

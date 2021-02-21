@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Learning the DOM</title>
+  </head>
+
+  <body>
+    <h1>Document Object Model</h1>
+    <a id="nav" href="1-intro-to-dom.html">Home (element node)</a>
+    text node
+    <!-- comment node-->
+    <button id="buttonChangeColor">Change Background Color</button>
+
+    <img src="2.JPG" style="width: 100vw; min-width: 600px" />
+    <script>
+      const onClick = () => {
+        console.log("click it ");
+        if (document.body.style.backgroundColor == "fuchsia") {
+          document.body.style.backgroundColor = "white";
+        } else {
+          document.body.style.backgroundColor = "fuchsia";
+        }
+      };
+
+      let button = document.getElementById("buttonChangeColor");
+
+      button.addEventListener("click", onClick);
+    </script>
+  </body>
+</html>

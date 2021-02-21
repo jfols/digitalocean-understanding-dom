@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Learning the DOM</title>
+  </head>
+
+  <body>
+    <h1>Document Object Model</h1>
+
+    <ul>
+      <li>Buy groceries</li>
+      <li>Feed the cat</li>
+      <li>Do laundry</li>
+    </ul>
+
+    <img src="5.JPG" style="width: 100vw; min-width: 600px" />
+
+    <script>
+      const todoList = document.querySelector("ul");
+
+      const newTodo = document.createElement("li");
+      newTodo.textContent = "Do ya work";
+
+      todoList.appendChild(newTodo);
+
+      const anotherTodo = document.createElement("li");
+      anotherTodo.textContent = "top priority (anotherTodo)";
+      todoList.insertBefore(anotherTodo, todoList.firstElementChild);
+
+      const replacedTodo = document.createElement("li");
+      replacedTodo.textContent = "replaced todo (replacedTodo)";
+
+      todoList.replaceChild(replacedTodo, todoList.children[2]);
+
+      todoList.removeChild(todoList.lastElementChild); // removes "Do ya work"
+
+      todoList.children[1].remove(); // removes "Buy groceries"
+    </script>
+  </body>
+</html>
